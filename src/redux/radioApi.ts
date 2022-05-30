@@ -13,7 +13,7 @@ interface IStation {
 export const radioApi = createApi({
   reducerPath: 'radioApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://91.132.145.114/json/stations/',
+    baseUrl: 'https://91.132.145.114/json/stations/',
   }),
   endpoints: (build) => ({
     getStations: build.query<

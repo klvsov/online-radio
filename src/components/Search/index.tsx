@@ -68,13 +68,13 @@ const Search: FC<SearchProps> = ({ handleChangeStation }) => {
       <>
         <MaterialSelectBox
           options={COUNTRIES}
-          placeholder="Select Country(ies)"
+          placeholder="Select Country"
           selectedOption={country}
           handleChange={handleChangeCountry}
         />
         <MaterialSelectBox
           options={GENRES}
-          placeholder="Select Genre(s)"
+          placeholder="Select Genre"
           selectedOption={tag}
           handleChange={handleChangeTag}
         />
