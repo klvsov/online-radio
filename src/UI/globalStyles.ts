@@ -6,13 +6,15 @@ const Global = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     font-family: 'Ubuntu Mono', monospace;
+    height: 100%;
+    background: antiquewhite;
     button{
       font-family: 'Ubuntu Mono', monospace;
     }
   }
   #root{
     max-width: 500px;
-    margin: 5px;
+    margin: 25px auto;
     overflow: hidden;
     background: #718693;
     border: 1px solid #4C5A65;
@@ -24,8 +26,8 @@ const Global = createGlobalStyle`
   .react-jinke-music-player-main {
     .music-player-panel {
       bottom: auto;
-      top: 55px;
-      left: 6px;
+      top: 75px;
+      left: calc(50% - 250px);
       background-color: rgba(0, 0, 0, 0.95);
       border-radius: 4px;
 
@@ -43,10 +45,10 @@ const Global = createGlobalStyle`
     .audio-lists-panel {
       width: 500px;
       height: auto;
-      left: 6px;
+      left: calc(50% - 250px);
       right: 0;
       bottom: auto;
-      top: 176px;
+      top: 196px;
       transform-origin: top;
       background-color: rgba(0, 0, 0, 0.95);
 
