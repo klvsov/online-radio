@@ -1,17 +1,26 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import { BrowserRouter } from 'react-router-dom';
+import { ApiProvider } from '@reduxjs/toolkit/query/react';
+import { ToastProvider } from 'react-toast-notifications';
+
+import { radioApi } from './redux/radioApi';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import Global from 'UI/globalStyles';
+
+import 'react-jinke-music-player/assets/index.css';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <ApiProvider api={radioApi}>
+    <BrowserRouter>
+      <Global />
+      <ToastProvider
+        autoDismiss
+        autoDismissTimeout={3000}
+        placement="bottom-center"
+      >
+        <App />
+      </ToastProvider>
+    </BrowserRouter>
+  </ApiProvider>,
   document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
