@@ -7,8 +7,6 @@ import { radioApi } from './redux/radioApi';
 import App from './App';
 import Global from 'UI/globalStyles';
 
-import 'react-jinke-music-player/assets/index.css';
-
 ReactDOM.render(
   <ApiProvider api={radioApi}>
     <BrowserRouter>
