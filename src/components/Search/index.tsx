@@ -53,7 +53,7 @@ const Search: FC<SearchProps> = ({ handleChangeStation }) => {
     setTag(event.target.value as string);
   };
 
-  const handleChange = (data: IStationItem): void => {
+  const handleChange = (data: IStation): void => {
     const station: IStation = {
       name: data.name,
       cover: data.favicon || defaultFavicon,

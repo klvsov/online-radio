@@ -1,35 +1,52 @@
-import { FC } from 'react';
-import ReactJkMusicPlayer from 'react-jinke-music-player';
+import { FC, useState } from 'react';
+import AudioPlayer from 'react-h5-audio-player';
 import { IStation } from 'types/stations';
-
-interface PlayerSoundProps {
-  audioList: IStation[];
-  onChangeAudioList: (data: IStation[]) => void;
+import Backdrop from '../Backdrop';
+import './Player.scss';
+import { ReactComponent as NextBtn } from 'assets/icons/next.svg';
+import { ReactComponent as PrevBtn } from 'assets/icons/prev.svg';
+import cls from 'classnames';
+interface AudioPlayerProps {
+  station: IStation;
+  setNextTrack: () => void;
+  setPrevTrack: () => void;
 }
 
-const PlayerSound: FC<PlayerSoundProps> = ({
-  audioList,
-  onChangeAudioList,
+const Player: FC<AudioPlayerProps> = ({
+  station,
+  setNextTrack,
+  setPrevTrack,
 }) => {
-  const handleRemoveStation = (stationId: string, updatedList: any) => {
-    onChangeAudioList(updatedList);
-  };
+  const [isPlaying, setIsPlaying] = useState(false);
 
   return (
-    <ReactJkMusicPlayer
-      audioLists={audioList}
-      theme="dark"
-      mode="full"
-      toggleMode={false}
-      autoPlay={false}
-      showDownload={false}
-      showMiniProcessBar={false}
-      showReload={false}
-      showPlayMode={false}
-      mobileMediaQuery="(max-width: 320px)"
-      onAudioListsChange={handleRemoveStation}
-    />
+    <div className="audio_player">
+      <div className="track_info">
+        <div className="artwork">
+          <img
+            src={station?.cover}
+            alt={`track artwork for ${station?.name}`}
+          />
+        </div>
+        <h2 className="title">{station?.name}</h2>
+        <div className="player_wrapper">
+          <button onClick={setPrevTrack} className={cls('btn', 'btn_prev')}>
+            <PrevBtn />
+          </button>
+          <button onClick={setNextTrack} className={cls('btn', 'btn_next')}>
+            <NextBtn />
+          </button>
+          <AudioPlayer
+            src={station.musicSrc}
+            onPause={() => setIsPlaying(false)}
+            onPlay={() => setIsPlaying(true)}
+            className="player"
+          />
+        </div>
+      </div>
+      <Backdrop activeColor={'#fff'} isPlaying={isPlaying} />
+    </div>
   );
 };
 
-export default PlayerSound;
+export default Player;

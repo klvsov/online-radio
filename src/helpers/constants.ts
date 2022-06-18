@@ -1,6 +1,7 @@
 import homeIcon from 'assets/icons/home.svg';
 import searchIcon from 'assets/icons/search.svg';
 import newIcon from 'assets/icons/new.svg';
+import listIcon from 'assets/icons/music-folder.svg';
 
 export const COUNTRIES = [
   {
@@ -94,16 +95,23 @@ export const GENRES = [
 
 export const MENU = [
   {
+    id: 'player',
+    icon: homeIcon,
+    route: '/',
+  },
+  {
+    id: 'playlist',
+    label: 'Play List',
+    route: '/list',
+    icon: listIcon,
+  },
+  {
     id: 'search',
     label: 'Search',
     icon: searchIcon,
     route: '/search',
   },
-  {
-    id: 'player',
-    icon: homeIcon,
-    route: '/',
-  },
+
   {
     id: 'add',
     label: 'Add new',

@@ -8,9 +8,10 @@ import {
 } from 'react-router-dom';
 import { useToasts } from 'react-toast-notifications';
 
-import PlayerSound from 'components/Player';
+import Player from 'components/Player';
 import Search from 'components/Search';
 import AddManually from 'components/AddManually';
+import PlayList from 'components/PlayList';
 import Container from 'UI/Container';
 import Menu from 'UI/Menu';
 import { MENU } from 'helpers/constants';
@@ -26,10 +27,15 @@ const App: React.FC = () => {
   const { addToast } = useToasts();
 
   const [audioList, setAudioList] = useState(storedValue);
+  const [selectedStation, setSelectedStation] = useState(audioList?.[0]);
 
   useEffect(() => {
     setStoredValue(audioList);
   }, [audioList, setStoredValue]);
+
+  const currentIndex = audioList.findIndex(
+    (item) => item.stationuuid === selectedStation.stationuuid
+  );
 
   const handleChangeStation = (currentId: string, station: IStation) => {
     const isInList =
@@ -51,6 +57,22 @@ const App: React.FC = () => {
     navigate(route);
   };
 
+  const handleSelectStation = (station: IStation): void => {
+    setSelectedStation(station);
+  };
+
+  const setNextTrack = () => {
+    setSelectedStation(
+      audioList[currentIndex + 1 >= audioList.length ? 0 : currentIndex + 1]
+    );
+  };
+
+  const setPrevTrack = () => {
+    setSelectedStation(
+      audioList[currentIndex + 1 >= 0 ? audioList.length - 1 : currentIndex - 1]
+    );
+  };
+
   return (
     <>
       <Menu
@@ -60,9 +82,22 @@ const App: React.FC = () => {
       />
       <Container>
         <>
-          <PlayerSound audioList={audioList} onChangeAudioList={setAudioList} />
+          <Player
+            station={selectedStation}
+            setNextTrack={setNextTrack}
+            setPrevTrack={setPrevTrack}
+          />
           <Routes>
             <Route path="/" element={<Outlet />} />
+            <Route
+              path="/list"
+              element={
+                <PlayList
+                  audioList={audioList}
+                  handleChange={handleSelectStation}
+                />
+              }
+            />
             <Route
               path="/search"
               element={<Search handleChangeStation={handleChangeStation} />}

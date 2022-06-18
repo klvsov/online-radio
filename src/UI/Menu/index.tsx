@@ -24,7 +24,6 @@ const Nav = styled.nav`
   width: 100%;
   height: 40px;
   justify-content: center;
-  margin-bottom: 120px;
 `;
 
 const NavItem = styled.div<NavItemProps>`
@@ -33,7 +32,7 @@ const NavItem = styled.div<NavItemProps>`
   align-items: center;
   justify-content: center;
   background: ${({ route, currentLocation }) =>
-    route === currentLocation ? '#4C5A65' : 'none'};
+    route === currentLocation ? 'rgba(0, 0, 0, 0.2)' : 'none'};
   padding: 0;
   text-align: center;
   cursor: pointer;

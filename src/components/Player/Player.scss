@@ -1,0 +1,102 @@
+.audio_player {
+  width: 350px;
+  padding: 24px;
+  border-radius: 20px;
+  box-shadow: 0 28px 28px rgba(0, 0, 0, 0.2);
+  margin: auto;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+.track_info {
+  text-align: center;
+  z-index: 1;
+  position: relative;
+}
+
+.artwork {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  overflow: hidden;
+  & img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.title {
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.player_wrapper {
+  position: relative;
+}
+
+.btn {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: calc(50% - 15px);
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  &:active {
+    & path {
+      fill: rgba(0, 0, 0, 0.2);
+    }
+  }
+  & svg path {
+    fill: #fff;
+  }
+}
+
+.btn_prev {
+  left: calc(50% - 70px);
+}
+
+.btn_next {
+  right: calc(50% - 70px);
+}
+
+.player {
+  position: relative;
+  & .rhap_progress-section,
+  .rhap_additional-controls,
+  .rhap_volume-controls {
+    display: none !important;
+  }
+
+  & button {
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    &:active {
+      & path {
+        fill: rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+
+  & path {
+    fill: #fff;
+  }
+
+  & .rhap_button-clear.rhap_main-controls-button.rhap_rewind-button svg,
+  .rhap_button-clear.rhap_main-controls-button.rhap_forward-button svg {
+    display: none;
+  }
+
+  & .rhap_button-clear.rhap_main-controls-button.rhap_play-pause-button svg {
+    height: 40px;
+    width: 40px;
+  }
+}

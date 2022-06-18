@@ -1,8 +1,9 @@
 export interface IStation {
   cover?: string;
-  musicSrc: string;
+  musicSrc?: string;
   name: string;
   favicon?: string;
+  url?: string;
   stationuuid?: string;
   __PLAYER_KEY__?: string;
 }

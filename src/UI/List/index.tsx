@@ -1,14 +1,14 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import { IStationItem } from 'types/stations';
+import { IStation } from 'types/stations';
 
 interface ListProps {
-  list: IStationItem[];
-  handleChange: (item: IStationItem) => void;
+  list: IStation[];
+  handleChange: (item: IStation) => void;
 }
 
 const StyledList = styled.div`
-  width: 100%;
+  max-width: 100%;
   padding: 10px;
   margin: 10px;
   display: grid;
