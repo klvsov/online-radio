@@ -73,6 +73,13 @@ const App: React.FC = () => {
     );
   };
 
+  const handleRemoveStation = (id: string): void => {
+    const filteredList = audioList.filter(
+      (station) => station.stationuuid !== id
+    );
+    setAudioList(filteredList);
+  };
+
   return (
     <>
       <Menu
@@ -94,7 +101,8 @@ const App: React.FC = () => {
               element={
                 <PlayList
                   audioList={audioList}
-                  handleChange={handleSelectStation}
+                  handleChangeStation={handleSelectStation}
+                  handleRemoveStation={handleRemoveStation}
                 />
               }
             />

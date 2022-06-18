@@ -1,17 +1,27 @@
 import { FC } from 'react';
 import { IStation } from 'types/stations';
 import List from 'UI/List';
+import styles from './Playlist.module.scss';
 
 interface PlayListProps {
   audioList: IStation[];
-  handleChange: (station: IStation) => void;
+  handleChangeStation: (station: IStation) => void;
+  handleRemoveStation: (id: string) => void;
 }
 
-const PlayList: FC<PlayListProps> = ({ audioList, handleChange }) => {
+const PlayList: FC<PlayListProps> = ({
+  audioList,
+  handleChangeStation,
+  handleRemoveStation,
+}) => {
   return (
-    <div style={{ width: '100%' }}>
+    <div className={styles.list_wrapper}>
       {audioList?.length && (
-        <List list={audioList} handleChange={handleChange} />
+        <List
+          list={audioList}
+          handleChange={handleChangeStation}
+          handleRemove={handleRemoveStation}
+        />
       )}
     </div>
   );
