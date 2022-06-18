@@ -5,12 +5,4 @@ export interface IStation {
   favicon?: string;
   url?: string;
   stationuuid?: string;
-  __PLAYER_KEY__?: string;
-}
-
-export interface IStationItem {
-  name: string;
-  favicon?: string;
-  stationuuid: string;
-  url: string;
 }

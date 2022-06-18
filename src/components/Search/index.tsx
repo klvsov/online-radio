@@ -10,7 +10,7 @@ import SearchContainer from 'UI/SearchContainer';
 import Link from 'UI/Link';
 import Title from 'UI/Title';
 import { COUNTRIES, GENRES } from 'helpers/constants';
-import { IStation, IStationItem } from 'types/stations';
+import { IStation } from 'types/stations';
 import MaterialSelectBox from '../SelectBox';
 import { SelectChangeEvent } from '@mui/material/Select';
 
