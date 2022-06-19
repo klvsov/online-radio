@@ -32,6 +32,11 @@ const StyledButton = styled.button`
   &:disabled {
     user-select: none;
     cursor: not-allowed;
+    background: rgba(0, 0, 0, 0.2);
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.2);
+    }
   }
 
   &:hover {
