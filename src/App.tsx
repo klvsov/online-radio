@@ -38,7 +38,7 @@ const App: React.FC = () => {
   useEffect(() => {
     if (!audioList?.length) return setSelectedStation(null);
     setSelectedStation(audioList[0]);
-  }, [audioList?.length]);
+  }, [audioList]);
 
   const currentIndex = audioList.findIndex(
     (item) => item?.stationuuid === selectedStation?.stationuuid
