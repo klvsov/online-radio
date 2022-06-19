@@ -9,22 +9,23 @@ interface ListProps {
 }
 
 const StyledList = styled.div`
-  max-width: 100%;
-  padding: 10px;
-  margin: 10px;
-  display: grid;
-  grid-gap: 10px;
+  width: 100%;
+  margin: 15px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 `;
 
 const ListItem = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 10px;
   padding-right: 0px;
-  display: grid;
-  grid-template-columns: 10fr 1fr;
   font-size: 13px;
-  grid-gap: 10px;
   color: #fff;
   cursor: pointer;
+  user-select: none;
 
   &:hover {
     border-radius: 5px;

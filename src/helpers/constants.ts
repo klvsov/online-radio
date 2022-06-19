@@ -41,10 +41,6 @@ export const COUNTRIES = [
     label: '🇪🇸 Spain',
   },
   {
-    value: 'The Russian Federation',
-    label: '🇷🇺 Russia',
-  },
-  {
     value: 'The United Kingdom Of Great Britain And Northern Ireland',
     label: '🇬🇧 Great Britain',
   },
