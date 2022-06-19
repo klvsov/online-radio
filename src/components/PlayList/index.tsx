@@ -1,7 +1,8 @@
 import { FC } from 'react';
 import { IStation } from 'types/stations';
 import List from 'UI/List';
-import styles from './Playlist.module.scss';
+
+import './styles.scss';
 
 interface PlayListProps {
   audioList: IStation[];
@@ -15,7 +16,7 @@ const PlayList: FC<PlayListProps> = ({
   handleRemoveStation,
 }) => {
   return (
-    <div className={styles.list_wrapper}>
+    <div className="list_wrapper">
       {!!audioList?.length && (
         <List
           list={audioList}

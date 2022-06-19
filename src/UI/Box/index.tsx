@@ -17,6 +17,9 @@ const StyledBox = styled.div<StyledBoxProps>`
   flex-direction: ${(props) => (props.isColumn ? 'column' : 'row')};
   margin-bottom: 10px;
   width: 480px;
+  @media (max-width: 430px) {
+    width: 350px;
+  }
 `;
 
 const Box: FC<BoxProps> = ({ isColumn, children }) => (

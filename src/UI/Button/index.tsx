@@ -25,6 +25,9 @@ const StyledButton = styled.button`
   text-decoration: none;
   z-index: 2;
   cursor: pointer;
+  @media (max-width: 430px) {
+    width: 350px;
+  }
 
   &:disabled {
     user-select: none;

@@ -1,5 +1,5 @@
 import { FC, useEffect } from 'react';
-import styles from './Backdrop.module.scss';
+import './styles.scss';
 import cls from 'classnames';
 
 interface BackdropProps {
@@ -14,8 +14,8 @@ const Backdrop: FC<BackdropProps> = ({ activeColor, isPlaying }) => {
 
   return (
     <div
-      className={cls(styles.color_backdrop, {
-        [styles.playing]: isPlaying,
+      className={cls('color_backdrop', {
+        playing: isPlaying,
       })}
     />
   );

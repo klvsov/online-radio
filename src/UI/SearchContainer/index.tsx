@@ -13,6 +13,9 @@ const StyledContainer = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  @media (max-width: 430px) {
+    max-width: 350px;
+  }
 `;
 
 const SearchContainer: FC<SearchContainerProps> = ({ children }) => {

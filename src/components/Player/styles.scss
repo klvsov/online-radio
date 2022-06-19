@@ -6,6 +6,10 @@
   margin: auto;
   color: #fff;
   border: 1px solid #fff;
+  @media (max-width: 430px) {
+    width: 350px;
+    padding: 10px 0;
+  }
 }
 
 .track_info {
@@ -27,6 +31,10 @@
   & img {
     width: 100%;
     height: auto;
+  }
+  @media (max-width: 430px) {
+    width: 150px;
+    height: 150px;
   }
 }
 

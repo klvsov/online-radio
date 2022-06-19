@@ -12,6 +12,9 @@ const StyledContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @media (max-width: 430px) {
+    max-width: 350px;
+  }
 `;
 
 const Container: FC<ContainerProps> = ({ children }) => {

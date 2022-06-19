@@ -7,8 +7,8 @@ import { IStation } from 'types/stations';
 import Backdrop from '../Backdrop';
 import { ReactComponent as NextBtn } from 'assets/icons/next.svg';
 import { ReactComponent as PrevBtn } from 'assets/icons/prev.svg';
-import './Player.scss';
 import { routes } from 'helpers/constants';
+import './styles.scss';
 
 interface AudioPlayerProps {
   station: IStation | null;
