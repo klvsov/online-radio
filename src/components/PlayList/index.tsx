@@ -16,7 +16,7 @@ const PlayList: FC<PlayListProps> = ({
 }) => {
   return (
     <div className={styles.list_wrapper}>
-      {audioList?.length && (
+      {!!audioList?.length && (
         <List
           list={audioList}
           handleChange={handleChangeStation}

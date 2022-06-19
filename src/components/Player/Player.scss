@@ -100,3 +100,15 @@
     width: 40px;
   }
 }
+
+.emptyState {
+  padding: 3rem 10px;
+  text-align: center;
+  font-size: 1.5rem;
+  color: white;
+
+  & span {
+    color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+  }
+}

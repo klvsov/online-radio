@@ -1,13 +1,17 @@
 import { FC, useState } from 'react';
 import AudioPlayer from 'react-h5-audio-player';
+import cls from 'classnames';
+import { useNavigate } from 'react-router-dom';
+
 import { IStation } from 'types/stations';
 import Backdrop from '../Backdrop';
-import './Player.scss';
 import { ReactComponent as NextBtn } from 'assets/icons/next.svg';
 import { ReactComponent as PrevBtn } from 'assets/icons/prev.svg';
-import cls from 'classnames';
+import './Player.scss';
+import { routes } from 'helpers/constants';
+
 interface AudioPlayerProps {
-  station: IStation;
+  station: IStation | null;
   setNextTrack: () => void;
   setPrevTrack: () => void;
 }
@@ -17,7 +21,19 @@ const Player: FC<AudioPlayerProps> = ({
   setNextTrack,
   setPrevTrack,
 }) => {
+  const navigate = useNavigate();
+
   const [isPlaying, setIsPlaying] = useState(false);
+
+  if (!station?.musicSrc)
+    return (
+      <div className="emptyState">
+        No saved stations found. Use{' '}
+        <span onClick={() => navigate(routes.search)}>search</span> or add a
+        station <span onClick={() => navigate(routes.add)}>manually</span> and
+        enjoy listening
+      </div>
+    );
 
   return (
     <div className="audio_player">
@@ -37,7 +53,7 @@ const Player: FC<AudioPlayerProps> = ({
             <NextBtn />
           </button>
           <AudioPlayer
-            src={station.musicSrc}
+            src={station?.musicSrc}
             onPause={() => setIsPlaying(false)}
             onPlay={() => setIsPlaying(true)}
             className="player"

@@ -14,7 +14,7 @@ import AddManually from 'components/AddManually';
 import PlayList from 'components/PlayList';
 import Container from 'UI/Container';
 import Menu from 'UI/Menu';
-import { MENU } from 'helpers/constants';
+import { MENU, routes } from 'helpers/constants';
 import useLocalStorage from 'hooks/useLocalStorage';
 import { IStation } from 'types/stations';
 
@@ -27,14 +27,21 @@ const App: React.FC = () => {
   const { addToast } = useToasts();
 
   const [audioList, setAudioList] = useState(storedValue);
-  const [selectedStation, setSelectedStation] = useState(audioList?.[0]);
+  const [selectedStation, setSelectedStation] = useState<IStation | null>(
+    audioList?.[0]
+  );
 
   useEffect(() => {
     setStoredValue(audioList);
   }, [audioList, setStoredValue]);
 
+  useEffect(() => {
+    if (!audioList?.length) return setSelectedStation(null);
+    setSelectedStation(audioList[0]);
+  }, [audioList?.length]);
+
   const currentIndex = audioList.findIndex(
-    (item) => item.stationuuid === selectedStation.stationuuid
+    (item) => item?.stationuuid === selectedStation?.stationuuid
   );
 
   const handleChangeStation = (currentId: string, station: IStation) => {
@@ -95,9 +102,9 @@ const App: React.FC = () => {
             setPrevTrack={setPrevTrack}
           />
           <Routes>
-            <Route path="/" element={<Outlet />} />
+            <Route path={routes.root} element={<Outlet />} />
             <Route
-              path="/list"
+              path={routes.list}
               element={
                 <PlayList
                   audioList={audioList}
@@ -107,11 +114,11 @@ const App: React.FC = () => {
               }
             />
             <Route
-              path="/search"
+              path={routes.search}
               element={<Search handleChangeStation={handleChangeStation} />}
             />
             <Route
-              path="/add"
+              path={routes.add}
               element={
                 <AddManually handleChangeStation={handleChangeStation} />
               }

@@ -93,29 +93,36 @@ export const GENRES = [
   },
 ];
 
+export const routes = {
+  root: '/',
+  list: '/list',
+  search: '/search',
+  add: '/add',
+};
+
 export const MENU = [
   {
     id: 'player',
     icon: homeIcon,
-    route: '/',
+    route: routes.root,
   },
   {
     id: 'playlist',
     label: 'Play List',
-    route: '/list',
+    route: routes.list,
     icon: listIcon,
   },
   {
     id: 'search',
     label: 'Search',
     icon: searchIcon,
-    route: '/search',
+    route: routes.search,
   },
 
   {
     id: 'add',
     label: 'Add new',
     icon: newIcon,
-    route: '/add',
+    route: routes.add,
   },
 ];
